@@ -6,8 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist",
-    "copy": "node copy_static.js",
-    "build": "npm run clean && npm run copy && webpack -p",
+    "copy": "node copy.js",
+    "build": "npm run clean && npm run copy && webpack -d",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,10 +16,12 @@
   "dependencies": {
     "es6-shim": "^0.35.1",
     "moment": "^2.15.1",
+    "pubsub-js": "^1.5.3",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
   "devDependencies": {
+    "@types/pubsub-js": "^1.5.17",
     "@types/react": "^0.14.37",
     "@types/react-dom": "^0.14.17",
     "cpx": "^1.5.0",
@@ -28,6 +30,7 @@
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "ts-loader": "^0.8.2",
+    "typings": "^1.4.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
   }

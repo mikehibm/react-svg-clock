@@ -17,7 +17,7 @@ module.exports = {
             { test: /\.tsx?$/, loader: "ts-loader" },
             { test: /\.html$/, loader: "file?name=[path][name].[ext]"},
             { test: /\.css$/, loader: "style!css" }
-        ]        
+        ]
     },
 
     devtool: "source-map",
@@ -28,6 +28,8 @@ module.exports = {
     },
 
     externals: {
+        "moment": "moment",
+        "pubsub-js" : "PubSub",
         "react": "React",
         "react-dom": "ReactDOM"
     }

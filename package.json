@@ -21,9 +21,6 @@
     "react-dom": "^15.3.2"
   },
   "devDependencies": {
-    "@types/pubsub-js": "^1.5.17",
-    "@types/react": "^0.14.37",
-    "@types/react-dom": "^0.14.17",
     "cpx": "^1.5.0",
     "css-loader": "^0.25.0",
     "file-loader": "^0.9.0",

@@ -1,5 +1,5 @@
 body {
-    background-color: #fcc;
+    background-color: #ffc;
 }
 
 header {
@@ -8,4 +8,8 @@ header {
 
 footer {
     margin-top: 80px;
+}
+
+.clocks {
+    border: 1px solid pink;
 }

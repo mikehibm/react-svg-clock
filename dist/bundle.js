@@ -137,7 +137,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n    background-color: #fcc;\n}\n\nheader {\n    margin-bottom: 20px;\n}\n\nfooter {\n    margin-top: 80px;\n}\n\n.clocks {\n    border: 1px solid pink;\n}", ""]);
+	exports.push([module.id, "body {\n    background-color: #ffc;\n}\n\nheader {\n    margin-bottom: 20px;\n}\n\nfooter {\n    margin-top: 80px;\n}\n\n.clocks {\n    border: 1px solid pink;\n}", ""]);
 	
 	// exports
 
@@ -478,19 +478,29 @@
 	    return t;
 	};
 	var React = __webpack_require__(/*! react */ 2);
-	var PulseGenerator_1 = __webpack_require__(/*! ./PulseGenerator */ 10);
+	var PubSub = __webpack_require__(/*! pubsub-js */ 10);
+	var PulseGenerator_1 = __webpack_require__(/*! ./PulseGenerator */ 11);
 	var ClockStore_1 = __webpack_require__(/*! ./ClockStore */ 12);
 	var Clock_1 = __webpack_require__(/*! ./Clock */ 13);
 	var App = (function (_super) {
 	    __extends(App, _super);
 	    function App(props) {
 	        _super.call(this, props);
-	        this.pulse = new PulseGenerator_1.PulseGenerator(200);
+	        this.pulseGenerator = new PulseGenerator_1.PulseGenerator(200);
+	        this.state = { now: new Date() };
 	    }
+	    App.prototype.componentWillMount = function () {
+	        var _this = this;
+	        PubSub.subscribe('pulse', function (msg, data) {
+	            var now = data;
+	            _this.setState({ now: now });
+	        });
+	    };
 	    App.prototype.render = function () {
+	        var now = this.state.now;
 	        var data = new ClockStore_1.ClockStore().getState();
 	        var clocks = data.clocks.map(function (p, ix) {
-	            return React.createElement(Clock_1.Clock, __assign({key: p.name}, p));
+	            return React.createElement(Clock_1.Clock, __assign({key: p.name}, p, {now: now}));
 	        });
 	        return (React.createElement("div", null, 
 	            React.createElement("header", null, 
@@ -506,13 +516,22 @@
 
 /***/ },
 /* 10 */
+/*!*************************!*\
+  !*** external "PubSub" ***!
+  \*************************/
+/***/ function(module, exports) {
+
+	module.exports = PubSub;
+
+/***/ },
+/* 11 */
 /*!****************************!*\
   !*** ./PulseGenerator.tsx ***!
   \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var PubSub = __webpack_require__(/*! pubsub-js */ 11);
+	var PubSub = __webpack_require__(/*! pubsub-js */ 10);
 	var PulseGenerator = (function () {
 	    function PulseGenerator(interval) {
 	        this.timer = setInterval(function () {
@@ -524,15 +543,6 @@
 	}());
 	exports.PulseGenerator = PulseGenerator;
 
-
-/***/ },
-/* 11 */
-/*!*************************!*\
-  !*** external "PubSub" ***!
-  \*************************/
-/***/ function(module, exports) {
-
-	module.exports = PubSub;
 
 /***/ },
 /* 12 */
@@ -573,23 +583,13 @@
 	};
 	var moment = __webpack_require__(/*! moment */ 1);
 	var React = __webpack_require__(/*! react */ 2);
-	var PubSub = __webpack_require__(/*! pubsub-js */ 11);
 	var Clock = (function (_super) {
 	    __extends(Clock, _super);
-	    function Clock(props) {
-	        _super.call(this, props);
-	        this.state = { now: new Date() };
+	    function Clock() {
+	        _super.apply(this, arguments);
 	    }
-	    Clock.prototype.componentWillMount = function () {
-	        var _this = this;
-	        PubSub.subscribe('pulse', function (msg, data) {
-	            var now = data;
-	            _this.setState({ now: now });
-	        });
-	    };
 	    Clock.prototype.render = function () {
-	        var _a = this.props, _b = _a.name, name = _b === void 0 ? '???' : _b, _c = _a.tz, tz = _c === void 0 ? 0 : _c;
-	        var _d = this.state.now, now = _d === void 0 ? new Date() : _d;
+	        var _a = this.props, _b = _a.name, name = _b === void 0 ? '???' : _b, _c = _a.tz, tz = _c === void 0 ? 0 : _c, _d = _a.now, now = _d === void 0 ? new Date() : _d;
 	        var nowStr = moment(now).utc().add(tz, 'hours').format('YYYY-MM-DD HH:mm:ss');
 	        return (React.createElement("div", null, 
 	            name, 

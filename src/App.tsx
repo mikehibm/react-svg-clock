@@ -6,7 +6,7 @@ import { Clock } from './Clock';
 
 export class App extends React.Component<any, any>{
 
-    pulseGenerator = new PulseGenerator(200);
+    pulseGenerator = new PulseGenerator(120);
 
     constructor(props) {
         super(props);

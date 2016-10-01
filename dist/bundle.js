@@ -486,7 +486,7 @@
 	    __extends(App, _super);
 	    function App(props) {
 	        _super.call(this, props);
-	        this.pulseGenerator = new PulseGenerator_1.PulseGenerator(200);
+	        this.pulseGenerator = new PulseGenerator_1.PulseGenerator(120);
 	        this.state = { now: new Date() };
 	    }
 	    App.prototype.componentWillMount = function () {
@@ -588,15 +588,39 @@
 	    function Clock() {
 	        _super.apply(this, arguments);
 	    }
+	    Clock.prototype.shouldComponentUpdate = function (nextProps, nextState) {
+	        return moment(nextProps.now).second() !== moment(this.props.now).second();
+	    };
 	    Clock.prototype.render = function () {
 	        var _a = this.props, _b = _a.name, name = _b === void 0 ? '???' : _b, _c = _a.tz, tz = _c === void 0 ? 0 : _c, _d = _a.now, now = _d === void 0 ? new Date() : _d;
-	        var nowStr = moment(now).utc().add(tz, 'hours').format('YYYY-MM-DD HH:mm:ss');
+	        var cur = moment(now).utc().add(tz, 'hours');
+	        var nowStr = cur.format('YYYY-MM-DD HH:mm:ss');
+	        var h = cur.hour();
+	        var m = cur.minute();
+	        var s = cur.second();
+	        var angle_offset = (Math.PI / 2);
+	        var ha = (Math.PI * 2 / 12 * h) + (Math.PI * 2 / 60 / 60 * m) + (Math.PI * 2 / 60 / 60 / 60 * s) + angle_offset;
+	        var hx = Math.cos(ha) * -180 + 320;
+	        var hy = Math.sin(ha) * -180 + 320;
+	        var ma = (Math.PI * 2 / 60 * m) + (Math.PI * 2 / 60 / 60 * s) + angle_offset;
+	        var mx = Math.cos(ma) * -260 + 320;
+	        var my = Math.sin(ma) * -260 + 320;
+	        var sa = (Math.PI * 2 / 60 * s) + angle_offset;
+	        var sx = Math.cos(sa) * -240 + 320;
+	        var sy = Math.sin(sa) * -240 + 320;
 	        return (React.createElement("div", null, 
-	            name, 
-	            " ", 
-	            tz, 
-	            " ", 
-	            nowStr));
+	            React.createElement("div", null, 
+	                name, 
+	                " ", 
+	                tz, 
+	                " ", 
+	                nowStr), 
+	            React.createElement("svg", {xmlns: "http://www.w3.org/2000/svg", width: "200", height: "200", viewBox: "0 0 640 640"}, 
+	                React.createElement("circle", {cx: "320", cy: "320", r: "300", stroke: "#333", "stroke-width": "4", fill: "#eef"}), 
+	                React.createElement("circle", {cx: "320", cy: "320", r: "20", stroke: "#444", "stroke-width": "4", fill: "none"}), 
+	                React.createElement("line", {x1: "320", y1: "320", x2: hx, y2: hy, stroke: "#444", "stroke-width": "1"}), 
+	                React.createElement("line", {x1: "320", y1: "320", x2: mx, y2: my, stroke: "#444", "stroke-width": "1"}), 
+	                React.createElement("line", {x1: "320", y1: "320", x2: sx, y2: sy, stroke: "#444", "stroke-width": "1"}))));
 	    };
 	    return Clock;
 	}(React.Component));

@@ -616,11 +616,11 @@
 	                " ", 
 	                nowStr), 
 	            React.createElement("svg", {xmlns: "http://www.w3.org/2000/svg", width: "200", height: "200", viewBox: "0 0 640 640"}, 
-	                React.createElement("circle", {cx: "320", cy: "320", r: "300", stroke: "#333", "stroke-width": "4", fill: "#eef"}), 
-	                React.createElement("circle", {cx: "320", cy: "320", r: "20", stroke: "#444", "stroke-width": "4", fill: "none"}), 
-	                React.createElement("line", {x1: "320", y1: "320", x2: hx, y2: hy, stroke: "#444", "stroke-width": "1"}), 
-	                React.createElement("line", {x1: "320", y1: "320", x2: mx, y2: my, stroke: "#444", "stroke-width": "1"}), 
-	                React.createElement("line", {x1: "320", y1: "320", x2: sx, y2: sy, stroke: "#444", "stroke-width": "1"}))));
+	                React.createElement("circle", {cx: "320", cy: "320", r: "300", stroke: "#666", strokeWidth: "4", fill: "#fcfcff"}), 
+	                React.createElement("line", {x1: "320", y1: "320", x2: hx, y2: hy, stroke: "#00C", strokeWidth: "20"}), 
+	                React.createElement("line", {x1: "320", y1: "320", x2: mx, y2: my, stroke: "#44F", strokeWidth: "10"}), 
+	                React.createElement("line", {x1: "320", y1: "320", x2: sx, y2: sy, stroke: "#E00", strokeWidth: "3"}), 
+	                React.createElement("circle", {cx: "320", cy: "320", r: "12", stroke: "#888", strokeWidth: "5", fill: "#000"}))));
 	    };
 	    return Clock;
 	}(React.Component));

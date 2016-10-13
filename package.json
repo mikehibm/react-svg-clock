@@ -10,6 +10,7 @@
     "build": "npm run clean && npm run copy && webpack -d",
     "now-start": "http-server ./dist",
     "now-build": "echo Nothing todo for now.",
+    "now-serve": "ns ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

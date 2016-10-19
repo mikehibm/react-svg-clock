@@ -13,3 +13,7 @@ footer {
 .clocks {
     border: 1px solid pink;
 }
+
+.clock-number {
+    text-align: center;
+}

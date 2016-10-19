@@ -38,7 +38,7 @@ export class Clock extends React.Component<ClockProps, {}> {
 
         return (
             <div>
-                <div>{name} {tz} {nowStr}</div>
+                <div>{name}: {nowStr}</div>
                 <svg xmlns="http://www.w3.org/2000/svg"
                     width="200" height="200"
                     viewBox="0 0 640 640">

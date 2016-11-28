@@ -48,29 +48,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var moment = __webpack_require__(/*! moment */ 1);
-	var React = __webpack_require__(/*! react */ 2);
-	var ReactDOM = __webpack_require__(/*! react-dom */ 3);
-	__webpack_require__(/*! ./index.html */ 4);
-	__webpack_require__(/*! ./main.css */ 5);
-	var App_1 = __webpack_require__(/*! ./App */ 9);
+	var React = __webpack_require__(/*! react */ 1);
+	var ReactDOM = __webpack_require__(/*! react-dom */ 2);
+	__webpack_require__(/*! ./index.html */ 3);
+	__webpack_require__(/*! ./main.css */ 4);
+	var App_1 = __webpack_require__(/*! ./App */ 8);
 	console.log('index.tsx loaded.');
-	var now = moment().format('YYYY-MM-DD HH:mm:ss');
-	console.log("Now is " + now + ".");
 	ReactDOM.render(React.createElement(App_1.App, null), document.getElementById('app'));
 
 
 /***/ },
 /* 1 */
-/*!*************************!*\
-  !*** external "moment" ***!
-  \*************************/
-/***/ function(module, exports) {
-
-	module.exports = moment;
-
-/***/ },
-/* 2 */
 /*!************************!*\
   !*** external "React" ***!
   \************************/
@@ -79,7 +67,7 @@
 	module.exports = React;
 
 /***/ },
-/* 3 */
+/* 2 */
 /*!***************************!*\
   !*** external "ReactDOM" ***!
   \***************************/
@@ -88,7 +76,7 @@
 	module.exports = ReactDOM;
 
 /***/ },
-/* 4 */
+/* 3 */
 /*!********************!*\
   !*** ./index.html ***!
   \********************/
@@ -97,7 +85,7 @@
 	module.exports = __webpack_require__.p + "index.html";
 
 /***/ },
-/* 5 */
+/* 4 */
 /*!******************!*\
   !*** ./main.css ***!
   \******************/
@@ -106,10 +94,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(/*! !./../~/css-loader!./main.css */ 6);
+	var content = __webpack_require__(/*! !./../~/css-loader!./main.css */ 5);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(/*! ./../~/style-loader/addStyles.js */ 8)(content, {});
+	var update = __webpack_require__(/*! ./../~/style-loader/addStyles.js */ 7)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -126,24 +114,24 @@
 	}
 
 /***/ },
-/* 6 */
+/* 5 */
 /*!**********************************!*\
   !*** ../~/css-loader!./main.css ***!
   \**********************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(/*! ./../~/css-loader/lib/css-base.js */ 7)();
+	exports = module.exports = __webpack_require__(/*! ./../~/css-loader/lib/css-base.js */ 6)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "body {\n    background-color: #ffc;\n}\n\nheader {\n    margin-bottom: 20px;\n}\n\nfooter {\n    margin-top: 80px;\n}\n\n.clocks {\n    border: 1px solid pink;\n}", ""]);
+	exports.push([module.id, "body {\n    background-color: #ffc;\n}\n\nheader {\n    margin-bottom: 20px;\n}\n\nfooter {\n    margin-top: 80px;\n}\n\n.clocks {\n    border: 1px solid pink;\n}\n\n.clock-number {\n    text-align: center;\n}", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 7 */
+/* 6 */
 /*!***************************************!*\
   !*** ../~/css-loader/lib/css-base.js ***!
   \***************************************/
@@ -202,7 +190,7 @@
 
 
 /***/ },
-/* 8 */
+/* 7 */
 /*!**************************************!*\
   !*** ../~/style-loader/addStyles.js ***!
   \**************************************/
@@ -457,7 +445,7 @@
 
 
 /***/ },
-/* 9 */
+/* 8 */
 /*!*****************!*\
   !*** ./App.tsx ***!
   \*****************/
@@ -477,11 +465,11 @@
 	    }
 	    return t;
 	};
-	var React = __webpack_require__(/*! react */ 2);
-	var PubSub = __webpack_require__(/*! pubsub-js */ 10);
-	var PulseGenerator_1 = __webpack_require__(/*! ./PulseGenerator */ 11);
-	var ClockStore_1 = __webpack_require__(/*! ./ClockStore */ 12);
-	var Clock_1 = __webpack_require__(/*! ./Clock */ 13);
+	var React = __webpack_require__(/*! react */ 1);
+	var PubSub = __webpack_require__(/*! pubsub-js */ 9);
+	var PulseGenerator_1 = __webpack_require__(/*! ./PulseGenerator */ 10);
+	var ClockStore_1 = __webpack_require__(/*! ./ClockStore */ 11);
+	var Clock_1 = __webpack_require__(/*! ./Clock */ 12);
 	var App = (function (_super) {
 	    __extends(App, _super);
 	    function App(props) {
@@ -515,7 +503,7 @@
 
 
 /***/ },
-/* 10 */
+/* 9 */
 /*!*************************!*\
   !*** external "PubSub" ***!
   \*************************/
@@ -524,14 +512,14 @@
 	module.exports = PubSub;
 
 /***/ },
-/* 11 */
+/* 10 */
 /*!****************************!*\
   !*** ./PulseGenerator.tsx ***!
   \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var PubSub = __webpack_require__(/*! pubsub-js */ 10);
+	var PubSub = __webpack_require__(/*! pubsub-js */ 9);
 	var PulseGenerator = (function () {
 	    function PulseGenerator(interval) {
 	        this.timer = setInterval(function () {
@@ -545,7 +533,7 @@
 
 
 /***/ },
-/* 12 */
+/* 11 */
 /*!***********************!*\
   !*** ./ClockStore.ts ***!
   \***********************/
@@ -569,7 +557,7 @@
 
 
 /***/ },
-/* 13 */
+/* 12 */
 /*!*******************!*\
   !*** ./Clock.tsx ***!
   \*******************/
@@ -581,8 +569,13 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var moment = __webpack_require__(/*! moment */ 1);
-	var React = __webpack_require__(/*! react */ 2);
+	var moment = __webpack_require__(/*! moment */ 13);
+	var React = __webpack_require__(/*! react */ 1);
+	var ANGLE_OFFSET = (Math.PI / 2);
+	var W = 640;
+	var H = 640;
+	var CX = W / 2;
+	var CY = H / 2;
 	var Clock = (function (_super) {
 	    __extends(Clock, _super);
 	    function Clock() {
@@ -595,37 +588,74 @@
 	        var _a = this.props, _b = _a.name, name = _b === void 0 ? '???' : _b, _c = _a.tz, tz = _c === void 0 ? 0 : _c, _d = _a.now, now = _d === void 0 ? new Date() : _d;
 	        var cur = moment(now).utc().add(tz, 'hours');
 	        var nowStr = cur.format('YYYY-MM-DD HH:mm:ss');
-	        var h = cur.hour();
-	        var m = cur.minute();
-	        var s = cur.second();
-	        var angle_offset = (Math.PI / 2);
-	        var ha = (Math.PI * 2 / 12 * h) + (Math.PI * 2 / 60 / 60 * m) + (Math.PI * 2 / 60 / 60 / 60 * s) + angle_offset;
-	        var hx = Math.cos(ha) * -180 + 320;
-	        var hy = Math.sin(ha) * -180 + 320;
-	        var ma = (Math.PI * 2 / 60 * m) + (Math.PI * 2 / 60 / 60 * s) + angle_offset;
-	        var mx = Math.cos(ma) * -260 + 320;
-	        var my = Math.sin(ma) * -260 + 320;
-	        var sa = (Math.PI * 2 / 60 * s) + angle_offset;
-	        var sx = Math.cos(sa) * -240 + 320;
-	        var sy = Math.sin(sa) * -240 + 320;
 	        return (React.createElement("div", null, 
 	            React.createElement("div", null, 
 	                name, 
-	                " ", 
-	                tz, 
-	                " ", 
+	                ": ", 
 	                nowStr), 
 	            React.createElement("svg", {xmlns: "http://www.w3.org/2000/svg", width: "200", height: "200", viewBox: "0 0 640 640"}, 
-	                React.createElement("circle", {cx: "320", cy: "320", r: "300", stroke: "#666", strokeWidth: "4", fill: "#fcfcff"}), 
-	                React.createElement("line", {x1: "320", y1: "320", x2: hx, y2: hy, stroke: "#00C", strokeWidth: "20"}), 
-	                React.createElement("line", {x1: "320", y1: "320", x2: mx, y2: my, stroke: "#44F", strokeWidth: "10"}), 
-	                React.createElement("line", {x1: "320", y1: "320", x2: sx, y2: sy, stroke: "#E00", strokeWidth: "3"}), 
-	                React.createElement("circle", {cx: "320", cy: "320", r: "12", stroke: "#888", strokeWidth: "5", fill: "#000"}))));
+	                this.renderBorder(), 
+	                this.renderNumbers(), 
+	                this.renderHands(cur))));
+	    };
+	    Clock.prototype.renderBorder = function () {
+	        return (React.createElement("g", null, 
+	            React.createElement("circle", {cx: CX, cy: CY, r: W * 30 / 64, stroke: "#666", strokeWidth: "4", fill: "#fcfcff"})
+	        ));
+	    };
+	    Clock.prototype.renderNumbers = function () {
+	        var numbers = [];
+	        for (var i = 0; i < 12; i++) {
+	            var numberStr = (i + 11) % 12 + 1 + '';
+	            var a = (Math.PI * 2 / 12 * i) + ANGLE_OFFSET;
+	            var x1 = Math.cos(a) * -290 + CX;
+	            var y1 = Math.sin(a) * -290 + CY;
+	            var x2 = Math.cos(a) * -270 + CX;
+	            var y2 = Math.sin(a) * -270 + CY;
+	            var tx = Math.cos(a) * -220 + CX - (numberStr.length * 20);
+	            var ty = Math.sin(a) * -220 + CY + 20;
+	            var n = React.createElement("g", {key: i, fontSize: "60"}, 
+	                React.createElement("line", {x1: x1, y1: y1, x2: x2, y2: y2, strokeWidth: "8", stroke: "#444", fill: "#444"}), 
+	                React.createElement("text", {x: tx, y: ty, className: "clock-number"}, numberStr));
+	            numbers.push(n);
+	        }
+	        return numbers;
+	    };
+	    Clock.prototype.renderHands = function (cur) {
+	        var h = cur.hour();
+	        var m = cur.minute();
+	        var s = cur.second();
+	        //Hour hand
+	        var ha = (Math.PI * 2 / 12 * h) + (Math.PI * 2 / 60 / 60 * m) + (Math.PI * 2 / 60 / 60 / 60 * s) + ANGLE_OFFSET;
+	        var hx = Math.cos(ha) * -180 + CX;
+	        var hy = Math.sin(ha) * -180 + CY;
+	        //Minute hand
+	        var ma = (Math.PI * 2 / 60 * m) + (Math.PI * 2 / 60 / 60 * s) + ANGLE_OFFSET;
+	        var mx = Math.cos(ma) * -260 + CX;
+	        var my = Math.sin(ma) * -260 + CY;
+	        //Second hand
+	        var sa = (Math.PI * 2 / 60 * s) + ANGLE_OFFSET;
+	        var sx = Math.cos(sa) * -240 + CX;
+	        var sy = Math.sin(sa) * -240 + CY;
+	        return (React.createElement("g", null, 
+	            React.createElement("line", {x1: CX, y1: CY, x2: hx, y2: hy, stroke: "#00C", strokeWidth: "20"}), 
+	            React.createElement("line", {x1: CX, y1: CY, x2: mx, y2: my, stroke: "#44F", strokeWidth: "10"}), 
+	            React.createElement("line", {x1: CX, y1: CY, x2: sx, y2: sy, stroke: "#E00", strokeWidth: "3"}), 
+	            React.createElement("circle", {cx: CX, cy: CY, r: "12", stroke: "#888", strokeWidth: "5", fill: "#000"})));
 	    };
 	    return Clock;
 	}(React.Component));
 	exports.Clock = Clock;
 
+
+/***/ },
+/* 13 */
+/*!*************************!*\
+  !*** external "moment" ***!
+  \*************************/
+/***/ function(module, exports) {
+
+	module.exports = moment;
 
 /***/ }
 /******/ ]);
